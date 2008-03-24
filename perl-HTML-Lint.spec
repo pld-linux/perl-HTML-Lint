@@ -5,35 +5,34 @@
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	HTML
 %define	pnam	Lint
-Summary:	Test::HTML::Lint - Test::More-style wrapper around HTML::Lint
-#Summary(pl):	
+Summary:	HTML::Lint - check for HTML errors in a string or file
+Summary(pl.UTF-8):	HTML::Lint - sprawdzanie łańcucha lub pliku HTML pod kątem błędów
 Name:		perl-HTML-Lint
 Version:	2.02
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-authors/id/P/PE/PETDANCE/HTML-Lint-2.02.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/HTML/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	f08241fbe2473d7542be5ef660ced6e3
+URL:		http://search.cpan.org/dist/HTML-Lint/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl(HTML::Parser) >= 3.20
-BuildRequires:	perl(HTML::Tagset) >= 3.03
+BuildRequires:	perl-HTML-Parser >= 3.20
+BuildRequires:	perl-HTML-Tagset >= 3.03
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This module provides a few convenience methods for testing exception
-based code. It is built with Test::Builder and plays happily with
-Test::More and friends.
+HTML::Lint checks a string or file for HTML errors. It comes with
+Test::More-style wrapper, Test::HTML::Lint.
 
-If you are not already familiar with Test::More now would be the time
-to go take a look.
-
-# %description -l pl
-# TODO
+%description -l pl.UTF-8
+HTML::Lint sprawdza łańcuch znaków lub plik HTML pod kątem błędów.
+Pakiet zawiera też moduł Test::HTML::Lint - wrapper w stylu
+Test::More.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -57,8 +56,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README
+%attr(755,root,root) %{_bindir}/weblint
 %{perl_vendorlib}/HTML/*.pm
 %{perl_vendorlib}/HTML/Lint
 %{perl_vendorlib}/Test/HTML/Lint.pm
 %{_mandir}/man3/*
-%attr(755,root,root) %{_bindir}/weblint
