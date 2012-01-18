@@ -8,13 +8,13 @@
 Summary:	HTML::Lint - check for HTML errors in a string or file
 Summary(pl.UTF-8):	HTML::Lint - sprawdzanie łańcucha lub pliku HTML pod kątem błędów
 Name:		perl-HTML-Lint
-Version:	2.06
-Release:	2
+Version:	2.10
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/HTML/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	60bd27c6ff0bb291a9fead0cd474b75f
+# Source0-md5:	17d364920349ee989242c5d660638a78
 URL:		http://search.cpan.org/dist/HTML-Lint/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
