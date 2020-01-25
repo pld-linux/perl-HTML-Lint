@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests		# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define	pdir	HTML
 %define	pnam	Lint
 Summary:	HTML::Lint - check for HTML errors in a string or file
